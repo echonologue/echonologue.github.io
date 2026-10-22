@@ -9,7 +9,7 @@ output:
 
 # This is Jeff's awesome website
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif) 
 
 You can write content, about whatever. 
 
@@ -17,4 +17,13 @@ I leanred all my datascience from [p8105](https://p8105.com/making_websites.html
 
 To learn about this page, go [here](about.html)
 
+# Some other stuff that's really cool
 
+Here's a really cool pic that I took:
+
+<img src="images/IMG_4224.JPG" style="width:75%">
+
+Another cool thing is scatterplots. Check this[out](???????)
+
+# site.yml 
+为什么没有plot图？

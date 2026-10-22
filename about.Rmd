@@ -9,6 +9,8 @@ output:
 
 # About this page
 
-This page is about how easy it is yo make websites
+This page is about how easy it is yo make websites.
 
-TO go home, click [here](index.html)
+Written by Cleo.
+
+TO go home, click [here](index.html).
