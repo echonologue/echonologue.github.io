@@ -1,0 +1,136 @@
+---
+title: "Weather at a New York State Station, 1981-2010"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+
+data("ny_noaa")
+
+noaa_clean =
+  ny_noaa |>
+  mutate(
+    year = as.integer(format(date, "%Y")),
+    month = factor(format(date, "%b"), levels = month.abb),
+    tmax = as.numeric(tmax) / 10,
+    tmin = as.numeric(tmin) / 10,
+    prcp = prcp / 10
+  )
+
+featured_station =
+  noaa_clean |>
+  group_by(id) |>
+  summarize(
+    complete_temperature_days = sum(!is.na(tmax) & !is.na(tmin)),
+    .groups = "drop"
+  ) |>
+  slice_max(complete_temperature_days, n = 1, with_ties = FALSE) |>
+  pull(id)
+
+station_weather =
+  noaa_clean |>
+  filter(id == featured_station)
+
+annual_temperature =
+  station_weather |>
+  group_by(year) |>
+  summarize(
+    `Average maximum` = mean(tmax, na.rm = TRUE),
+    `Average minimum` = mean(tmin, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  pivot_longer(
+    cols = c(`Average maximum`, `Average minimum`),
+    names_to = "temperature_type",
+    values_to = "temperature"
+  ) |>
+  mutate(
+    hover_text = str_c(
+      "Station: ", featured_station,
+      "<br>Year: ", year,
+      "<br>", temperature_type, ": ", round(temperature, 1), " °C"
+    )
+  )
+
+annual_snow =
+  station_weather |>
+  group_by(year) |>
+  summarize(
+    snowy_days = sum(snow > 0, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Annual Average Temperature (Station `r featured_station`)
+
+```{r temperature-line, echo=FALSE}
+annual_temperature |>
+  plot_ly(
+    x = ~year,
+    y = ~temperature,
+    color = ~temperature_type,
+    colors = c("#D95F02", "#1B9E77"),
+    type = "scatter",
+    mode = "lines+markers",
+    text = ~hover_text,
+    hoverinfo = "text"
+  ) |>
+  layout(
+    xaxis = list(title = "Year"),
+    yaxis = list(title = "Average temperature (°C)"),
+    legend = list(title = list(text = "Temperature measure"))
+  )
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Maximum Temperature by Month
+
+```{r temperature-box, echo=FALSE}
+station_weather |>
+  filter(!is.na(tmax)) |>
+  plot_ly(
+    x = ~month,
+    y = ~tmax,
+    type = "box",
+    color = ~month,
+    colors = "viridis",
+    showlegend = FALSE
+  ) |>
+  layout(
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Maximum temperature (°C)")
+  )
+```
+
+### Snowy Days by Year
+
+```{r snow-bar, echo=FALSE}
+annual_snow |>
+  mutate(
+    hover_text = str_c("Year: ", year, "<br>Snowy days: ", snowy_days)
+  ) |>
+  plot_ly(
+    x = ~year,
+    y = ~snowy_days,
+    type = "bar",
+    marker = list(color = "#5B8E7D"),
+    text = ~hover_text,
+    hoverinfo = "text"
+  ) |>
+  layout(
+    xaxis = list(title = "Year"),
+    yaxis = list(title = "Days with snowfall")
+  )
+```
