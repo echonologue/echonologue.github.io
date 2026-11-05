@@ -1,29 +1,23 @@
 ---
-title: "My awesome website"
-output: 
+title: "Chen"
+output:
   html_document:
-    toc: true
-    toc_float: true
-    theme: cerulean
+    toc: false
 ---
 
-# This is Jeff's awesome website
+# Hello, I'm Chen.
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif) 
+I am an M.S. student in **Biostatistics** on the Statistical Genetics track at
+Columbia University Mailman School of Public Health. I previously studied
+Biotechnology with a specialization in Bioinformatics at the University of
+California, Davis.
 
-You can write content, about whatever. 
+My recent work has included healthcare market research, experimental
+biotechnology data, and longitudinal agricultural research.
 
-I leanred all my datascience from [p8105](https://p8105.com/making_websites.html)!
+<img src="images/IMG_3660.JPG" style="width:75%">" 
 
-To learn about this page, go [here](about.html)
+*My 4 years.*
 
-# Some other stuff that's really cool
-
-Here's a really cool pic that I took:
-
-<img src="images/IMG_4224.JPG" style="width:75%">
-
-Another cool thing is scatterplots. Check this[out](???????)
-
-# site.yml 
-为什么没有plot图？
+Learn more about my [education and experience](about.html), or explore my
+[interactive dashboard](flexdashboard.html).

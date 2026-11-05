@@ -1,16 +1,83 @@
 ---
-title: "My awesome website"
-output: 
+title: "Resume & Experience"
+output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
-# About this page
+# Chen Li
 
-This page is about how easy it is yo make websites.
+M.S. Student in Biostatistics, Statistical Genetics Track  
+Columbia University Mailman School of Public Health  
+[cl4946@cumc.columbia.edu](mailto:cl4946@cumc.columbia.edu) |
+[GitHub](https://github.com/echonologue)
 
-Written by Cleo.
+## Education
 
-TO go home, click [here](index.html).
+### Columbia University Mailman School of Public Health
+
+**M.S. in Biostatistics, Statistical Genetics Track**  
+New York, NY | September 2026 - May 2028 (expected)
+
+Relevant coursework includes data analysis with R and Python, applied
+statistics, statistical genetics modeling, and advanced statistical and
+computational methods in genetics and genomics.
+
+### University of California, Davis
+
+**B.S. in Biotechnology, Bioinformatics Specialization**  
+Davis, CA | September 2022 - March 2026
+
+Selected honors and funding: PEAS Research Fellowship, WSU Global Hemp
+Innovation Center Fellowship, and BioLaunch Stipend Fellows Award.
+
+## Data Analytics Experience
+
+### IQVIA | Primary Intelligence Intern
+
+April 2026 - August 2026
+
+- Validated more than 60 physician survey responses comprising over 2,000 data
+  points by checking missingness, response ranges, skip logic, and
+  cross-question consistency.
+- Developed reproducible Python workflows with pandas and NumPy to integrate
+  physician-, hospital-, city-, and regional-level variables into
+  analysis-ready datasets.
+- Performed descriptive and subgroup analyses and produced standardized summary
+  tables and visualizations for client reporting.
+- Synthesized physician interviews, market tracking data, and scientific
+  literature to support analyses of treatment behavior and competitive
+  dynamics.
+
+### Cyanotype Bio | Industry Intern
+
+Vacaville, CA | June 2024 - March 2025
+
+- Built a structured experimental dataset linking image-derived growth and
+  morphology measures with spectral data and culture-quality records.
+- Standardized image and spectral outputs into comparable quantitative features
+  for systematic cross-line comparison.
+- Combined growth, culture-quality, and optical-performance metrics to rank
+  candidate plant cell lines for downstream product development.
+- Standardized aseptic culture and monitoring procedures, reducing contamination
+  rates by approximately 20%.
+
+### Brummer Lab, UC Davis | Undergraduate Researcher
+
+Davis, CA | August 2024 - March 2026
+
+- Built and maintained a one-year longitudinal dataset covering more than 3,000
+  plants across eight industrial hemp cultivars.
+- Developed Python and pandas workflows to clean, reshape, merge, and aggregate
+  repeated field measurements.
+- Applied ANOVA in R to study sex-ratio effects on fiber yield and interactions
+  between cultivar and sex ratio.
+- Presented the project at the UC Davis Undergraduate Research Conference and
+  received $3,500 in PEAS research funding.
+
+## Skills
+
+- **Programming and tools:**  R, RStudio, Git/GitHub, Excel, PowerPoint
+
+- **Languages:** Mandarin Chinese (native), English (fluent)
